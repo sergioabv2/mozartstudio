@@ -1,1 +1,2267 @@
 
+<html>
+
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1.0, user-scalable=no">
+<link rel="icon" href="https://lh3.googleusercontent.com/d/1k9LA88h-FVVn9EeryBRVBrtc5tPl92CK" type="image/x-icon">
+    <title>Mozart Academy</title>
+
+  
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  
+   <link rel="stylesheet" href="https://unpkg.com/swiper@9.2.4/swiper-bundle.min.css">
+   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+  
+   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+
+</head>
+  
+
+<style>
+  body {
+  position: relative;
+}
+
+input {
+  background-color: #202830!important;
+  color: white!important;
+  margin-bottom: 5px;
+}
+  
+  select{
+    background-color: #202830!important;
+  color: white!important;
+    margin-bottom: 5px;
+  }
+
+#playstore-logo {
+  width: 200px!important;
+  margin: 6%!important;
+}
+
+  
+
+
+.card {
+  background-color: #202830!important;
+}
+
+
+
+.cardp {
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  position: relative;
+  width: 50%;
+  transition: all ease-in-out 400ms;
+  cursor: pointer;
+}
+
+.cardp:hover {
+  transform: scale(1.05);
+}
+
+.cardp:active {
+  transform: translateY(-1px);
+}
+
+.card__side {
+  transition: all 0.8s ease;
+  color: white;
+  font-size: 2rem;
+  position: absolute;
+  top: 0;
+  left: -10px;
+  height: 20vh;
+  width: 20vh;
+  backface-visibility: hidden;
+  box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+}
+
+.card__side--front {
+  background-color: #2196f3;
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.card__side--back {
+  background-color: #303f9f;
+  transform: rotateY(180deg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.showGreen {
+  transform: rotateY(-180deg);
+}
+
+.showRed {
+  transform: rotateY(0);
+}
+
+.text-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+  font-size: 24;
+  font-weight: 700;
+}
+
+
+#front-1 {
+  background-image: 
+    url("https://lh3.googleusercontent.com/d/1GGIRHZ6w7Hl-u51og30iqCpOkT3Xc8EC");
+}
+
+#back-1 {
+  background-image: 
+    url("https://lh3.googleusercontent.com/d/1wvSFXvMlQKbyYvqV6L0oFefKFtW0D3lq");
+}
+
+
+
+
+footer {
+  background: black;
+  padding: 15px;
+  position: static!important;
+}
+
+hr {
+  border-top: 1px solid #888!important;
+  border-bottom: 1px solid rgba(0,0,0,0.2)!important;
+}
+
+#services{
+  text-align: center!important;
+  margin-top: 3%!important;
+  margin-bottom: 3%!important;
+}
+
+.jumbotron {
+  background: URL(https://lh3.googleusercontent.com/d/1N-Idp7uUKN5vEuGcGIqJ2xtsgUMfeM8l);
+  background-size: cover;
+  background-position: top;
+  border-radius: 0px!important;
+  text-align: center;
+  margin-top: 55px;
+}
+
+
+
+
+.strong-shadow {
+  text-shadow: 1px 2px 3px black, 0px 8px 13px black, 0px 18px 23px black!important;  
+}
+
+
+
+
+
+
+.row--center{
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.row--margin{
+  margin-top:45px;
+}
+
+.row__title{
+  text-align: center;
+  font-size: 26px;
+  font-weight: 400;
+  margin-top: 0px;
+}
+
+.row__sub{
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0px; 
+  color: #8198ae;
+}
+
+.price-box{
+  padding: 0px 25px;  
+}
+
+.price-box__wrap{
+  background-color: #202830!important;;
+  border-radius:6px;
+  box-shadow:  0 4px 8px 0px rgba(0,0,0,0.2); /*0px 22px 20px -10px rgba(0, 0, 0,0.2)*/
+  padding: 35px 35px 40px 35px;
+  text-align:center;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+}
+
+.price-box__img{
+  display: inline-block;
+}
+
+.price-box__img{
+  width:130px;
+  height:130px;
+  border-radius: 15%;
+  margin-bottom: 2.5vw;
+  background-position: center;
+    background-size:cover;
+  background-repeat:no-repeat;
+}
+
+
+
+.price-box--purple .price-box__img{
+  background-image: url("https://i.ibb.co/c8xTZFM/Whats-App-Image-2022-05-27-at-8-42-00-AM.jpg");
+
+}
+
+
+.price-box--violet .price-box__img{
+  background-image: url("https://i.ibb.co/W3bVHyp/Skype-piano-lessons-copy-2-750x750-2.jpg");
+
+}
+
+.price-box--blue .price-box__img{
+  background-image: url("https://lh3.googleusercontent.com/d/1hZaFrumtvmBz_tJXZrm3mmc3dOhE4qjo");
+
+}
+
+.price-box__title{
+  font-size:22px;
+  letter-spacing:1px;
+  margin-bottom:4px;
+}
+
+.price-box__people{
+  font-size:12px;
+  color:#8198ae;
+  font-weight: 300;
+  letter-spacing:1px;
+}
+.price-box__discount{
+  font-size: 28px;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+.price-box__dollar {
+    font-size: 18px;
+    font-weight: 400;
+    vertical-align: top;
+    margin-right: 4px;
+}
+
+.price-box--purple .price-box__dollar{
+  color: #8a3aff;
+}
+
+.price-box--violet .price-box__dollar{
+  color: #6f79ff;
+}
+
+.price-box--blue .price-box__dollar{
+  color: #3a9fff;
+}
+
+.price-box__discount--light{
+  font-weight: 400;
+  font-size: 20px;
+  margin-left: 3px;
+}
+
+.price-box__price {
+    margin-top: 3px;
+    font-size: 15px;
+    color: #8198ae;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+    font-weight: 300;
+
+}
+
+.price-box__feat {
+    margin-top: 30px;
+    font-size: 16px;
+}
+
+.price-box__list {
+    text-align: left;
+    padding-left: 30px;
+    margin: 0;
+    list-style: none;
+}
+
+.price-box__list-el{
+  position: relative;
+  margin-bottom: 8px;
+  font-weight: 300;
+}
+
+.price-box__list-el:before{
+  content: "✓";
+  position: absolute;
+  left: -25px;
+  font-size: 18px;
+  top: -4px;
+}
+
+.price-box--purple .price-box__list-el:before{
+  color: #8a3aff;
+}
+
+.price-box--violet .price-box__list-el:before{
+  color: #6f79ff;
+}
+
+.price-box--blue .price-box__list-el:before{
+  color: #3a9fff;
+}
+
+.price-box__wrap:hover {
+  backface-visibility: hidden;
+  transform: scale(1.05, 1.05);
+  box-shadow: 0px 30px 18px -8px rgba(0, 0, 0,0.1);
+}
+
+
+
+
+
+
+.price-box__wrap:hover .btn {
+  box-shadow: 0px 25px 18px -6px rgba(0, 0, 0,0.2);
+}
+
+.btn--revert{
+    background-color:transparent;
+    color: #8198ae;
+    box-shadow: none;
+    border:1px solid #c9d9e9;
+}
+
+.btn--revert:hover{
+    background-color:transparent;
+    color: #1f4568;
+    box-shadow: none;
+    border:1px solid #8198ae;
+}
+
+
+.btn--purple {
+    background-color: #8a3aff;
+}
+
+.btn--purple:hover{
+    background-color: #b284f6;
+}
+
+.btn--violet {
+    background-color: #6f79ff;
+}
+.btn--violet:hover {
+    background-color: #878ef3;
+}
+
+.btn--blue {
+    background-color: #3a9fff;
+}
+.btn--blue:hover {
+    background-color: #63b2fc;
+}
+.btn--width{
+  width: 120px;
+}
+
+.btn--white{
+  background-color: #fff;
+  border: 1px solid #ededed;
+  color: #8198ae;
+}
+
+.btn--white:hover{
+  background-color: #fff;
+  color: #8198ae;
+}
+
+.price-box__btn {
+    position: absolute;
+    bottom: -17px;
+    left: 50%;
+    margin-left: -55px;
+}
+
+.row__sub--light{
+  color: #aec0d2;
+}
+.item__img{
+  width:25px;
+  margin-right:10px;
+}
+
+.sect{
+  padding: 90px 0;
+  position: relative;
+  padding-bottom:115px;
+}
+
+
+.contact-info{
+  background-image: url("https://i.ibb.co/yQT891P/Copia-de-Whats-App-Image-2023-01-05-at-14-43-22-2.jpg");
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: contain;
+}
+
+
+
+.footer__title{
+  font-size: 18px;
+
+display: inline-block;
+line-height: 18px;
+vertical-align: middle;
+  color:#3a9fff;
+}
+
+.footer__light{
+   color:#fff;
+}
+
+
+.isoc {
+  vertical-align: 0.6em;
+}
+
+
+  .modal-container {
+    position: fixed;
+    display: table;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transform: scale(0);
+    
+  }
+  
+
+  .modal-container.four {
+     z-index: 10;
+    transform: scale(1);
+  }
+
+  .modal-container.four .modal-background .modal {
+    animation: blowUpModal 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  }
+  .modal-container.four + body {
+    z-index: 1;
+    animation: blowUpContent 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  }
+  .modal-container.four.out .modal-background .modal {
+    animation: blowUpModalTwo 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  }
+  .modal-container.four.out + body {
+    animation: blowUpContentTwo 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  }
+
+  .modal-container .modal-background {
+    display: table-cell;
+    background: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    vertical-align: middle;
+  }
+  .modal-container .modal-background .modal {
+    padding: 50px;
+    display: inline-block;
+    border-radius: 3px;
+    font-weight: 300;
+    position: relative;
+  }
+  
+  
+  
+
+  @keyframes blowUpContent {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    99.9% {
+      transform: scale(2);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(0);
+    }
+  }
+  @keyframes blowUpContentTwo {
+    0% {
+      transform: scale(2);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  @keyframes blowUpModal {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  @keyframes blowUpModalTwo {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(0);
+      opacity: 0;
+    }
+  }
+
+  .modal-hidden .modal-background {
+    background: transparent;
+  }
+  
+  
+  
+
+
+.social-bar {
+    display: flex;
+   /* border-radius: 10px;
+    background: black;
+    box-shadow: 0 0 60px rgba(93, 70, 232, 0.15);
+  border: 1px solid#ebe9e9;*/
+  transform: scale(0.8) translate(0, 1px);
+  margin-botom: -100px;
+   
+}
+
+
+.social-icons a {
+    border-radius: 50px;
+    color: #3f345f;
+    display: inline-flex; /* Cambia inline-block a inline-flex */
+    align-items: center;  /* Centra verticalmente */
+    justify-content: center;  /* Centra horizontalmente */
+    height: 50px;
+    width: 50px;
+    box-shadow: 0 5px 25px rgba(93, 70, 232, 0.15);
+    margin: 10px 10px;
+    font-size: 22px;
+}
+
+
+
+
+.slider-nav-item:before {
+    position: absolute;
+    content: "";
+    height: calc(100% + 16px);
+    width: calc(100% + 16px);
+    top: -8px;
+    left: -8px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    animation: 1.5s linear 0s normal none infinite focuse;
+}
+
+
+
+/*socil*/
+.slider-nav{
+        display: flex;
+}
+
+.process-scetion .slider-nav-item {
+    position: relative;
+    flex-grow: 0;
+    flex-shrink: 0;
+    border-radius: 50%;
+    text-align: center;
+  box-shadow:0 0 0 1px rgba(255,255,255,0.4);
+    cursor: pointer;
+    transition: all .4s ease;
+    color: #fff;
+    text-decoration: none;
+}
+  .process-scetion .slider-nav-item:hover {
+    opacity:0.7;
+  }
+.slider-nav-item:before
+{
+        position: absolute;
+    content: "";
+    height: calc(100% + 16px);
+    width: calc(100% + 16px);
+    top: -8px;
+    left: -8px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    animation: 1.5s linear 0s normal none infinite focuse;
+}
+
+    .process-scetion .slider-nav-item:after {
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      height: 2px;
+      content: '';
+      width: 100%;
+     
+      z-index: 0;
+      animation: slide 1s linear infinite; }
+    .process-scetion .slider-nav-item:last-child:after {
+      display: none; }
+    .process-scetion .slider-nav-item .ikon {
+      font-size: 50px;
+      line-height: 80px; }
+
+
+   
+      .process-scetion .slider-nav-item.active:before {
+        position: absolute;
+        content: "";
+        height: calc(100% + 16px);
+        width: calc(100% + 16px);
+        top: -8px;
+        left: -8px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        animation: 1.5s linear 0s normal none infinite focuse; }
+
+@keyframes focuse {
+  0% {
+    transform: scale(0.8);
+    opacity: 1; }
+  75% {
+    transform: scale(1.2);
+    opacity: 0; }
+  100% {
+    transform: scale(1.2);
+    opacity: 0; } }
+@keyframes slide {
+  from {
+    background-position: 0 0; }
+  to {
+    background-position: 40px 0; } }
+
+
+
+
+@-webkit-keyframes jello-horizontal {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+  30% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+            transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+            transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+            transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+            transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+            transform: scale3d(1.05, 0.95, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+}
+@keyframes jello-horizontal {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+  30% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+            transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+            transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+            transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+            transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+            transform: scale3d(1.05, 0.95, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+}
+
+
+.jello-horizontal {
+  -webkit-animation: jello-horizontal 0.9s both;
+          animation: jello-horizontal 0.9s both;
+}
+
+.social-bar a:hover i
+{
+  -webkit-animation: jello-horizontal 0.9s both;
+          animation: jello-horizontal 0.9s both;
+}
+
+
+  
+  
+  
+
+
+.swiper-slide-img:hover {
+  cursor: pointer;
+}
+
+.gallery-thumbs .swiper-slide img:hover, .swiper-slide img:hover  {
+    cursor: pointer;
+}
+
+
+  .swiper-pagination-bullet {
+  background: white; /* Cambia el color de las bolitas a blanco */
+}
+
+.swiper-button-prev {
+  position: absolute;
+  transform: translateX(-40%);
+  color: white;
+}
+
+.swiper-button-prev:focus {
+  outline: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.swiper-button-next {
+  position: absolute;
+  transform: translateX(40%);
+  color: white;
+  font-weight: 900;
+
+}
+
+.swiper-button-next:focus {
+  outline: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+
+
+
+
+
+
+@media screen and (min-width:800px){
+    #youtube {
+    height: 150px;
+  }
+   .jumbotron{    
+    height: 550px;;
+     background-position: center;
+    margin-top: 5px;
+  }
+}
+
+@media screen and (min-width:1000px){
+     #youtube {
+    height: 200px;
+  }
+}
+
+
+@media screen and (min-width:1024px){
+
+    .contact-info{
+      
+        height: 250px;
+  display: flex;
+  align-items: flex-end;
+    }
+    
+
+  .jumbotron{
+    
+    height: 550px;
+     background-position: center;
+    margin-top: 5px;
+  }
+  
+  .card__side{
+    top: -20px;
+    left: 30px;
+      height: 30vh;
+  width: 30vh;
+  }
+  
+   .modal-container .modal-background .modal img{
+      width: 55%;
+      height: auto;
+  }
+  
+  input {
+  margin-bottom: 10px;
+}
+  
+  select{
+    margin-bottom: 10px;
+  }
+  
+  /*.modal-container .modal-background .modal card{
+    max-width: 300px;
+  }*/
+  
+  .form-insc{
+    max-width: 750px;
+  }
+
+
+  #drive{
+    height: 480px;
+    width: 380px;
+    margin-top: 30px;
+  }
+ }  
+
+ @media screen and (min-width:1200px){
+    #youtube {
+    height: 250px;
+  }
+}
+  
+
+@media screen and (max-width:1024px){
+  .collapse{
+ display: none;
+}
+  .navbar-toggle {
+    margin: 0;
+    display: inline-block;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+  .header__container{
+    width: 100%;
+    padding: 0;
+  }
+  .header__menu {
+    width: 100%;
+}
+  .header{
+    background-color:#fff; 
+    padding: 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 4;
+  }
+  .header__logo{
+    padding: 12px 20px 12px 20px;
+  }
+  .header__el {
+    display: block;
+    padding: 10px 20px;
+    border-top: 1px solid #ededed;
+}
+  
+  .header .btn--white, .header .btn--white:hover{
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+    color:#fff;
+    background-color:transparent;
+  }
+  .header__el--blue{
+    background-color:#3a9fff;
+  }
+  
+   .modal-container .modal-background .modal img{
+      width: 60%;
+      height: auto;
+  }
+  
+  .form-insc{
+    max-width: 700px;
+  }
+
+  #drive{
+    height: 480px;
+    width: 380px;
+    margin-top: 30px;
+  }
+   
+}
+
+
+@media screen and (max-width:991px){
+  .price-box {
+    padding: 0px 10px;
+  }
+  .item__content {
+    height: auto;
+}
+
+}
+
+@media screen and (max-width:767px) {
+
+ .price-box__title {
+    font-size: 18px;
+    margin-top: 10px;
+}
+  .price-box__img {
+    width: 90px;
+    height: 90px;
+  }
+  .price-box__wrap {
+    padding: 20px 20px 30px 20px;
+  }
+  .price-box__people {
+    font-size: 10px;
+    font-weight: 400;
+  }
+  .price-box__discount {
+    font-size: 22px;
+  }
+  .price-box__price {
+    font-size: 12px;
+  }
+  .price-box__feat {
+      margin-top: 15px;
+      font-size: 14px;
+  }
+  .price-box__list-el {
+    font-size: 12px;
+    margin-bottom: 5px;
+} 
+    .btn {
+    font-size: 12px;
+    margin-left: 5px;
+}
+  .btn--width {
+    width: 100px;
+}
+  .footer {
+    padding: 25px 0;
+  }
+  
+
+  
+   .modal-container .modal-background .modal img{
+      width: 80%;
+      height: auto;
+  }
+
+#youtube {
+    height: 105px;
+  }
+
+  
+  
+}
+
+
+@media screen and (max-width:575px) {
+   .price-box {
+    padding: 0 35px;
+     margin-bottom: 50px;
+  }
+  
+ .price-box__title {
+    font-size:25px;
+  letter-spacing:1px;
+  margin-bottom:4px;
+}
+  .price-box__img {
+    width:130px;
+  height:130px;
+  }
+  .price-box__wrap {
+    background-color: #202830!important;;
+  border-radius:6px;
+  box-shadow:  0 4px 8px 0px rgba(0,0,0,0.2); /*0px 22px 20px -10px rgba(0, 0, 0,0.2)*/
+  padding: 35px 35px 40px 35px;
+  text-align:center;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  }
+  .price-box__people{
+  font-size:12px;
+}
+.price-box__discount{
+  font-size: 30px;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+  .price-box__price{
+    font-size: 15px;
+  }
+  .price-box__feat {
+    margin-top: 30px;
+    font-size: 18px;
+}
+
+.price-box__list-el{
+  position: relative;
+  margin-bottom: 8px;
+  font-weight: 300;
+  font-size: 15px;
+}
+  .btn--width{
+  width: 120px;
+  font-size: 14px;
+}
+  
+ 
+
+.card__side{
+    top: -20px;
+    
+      height: 16vh;
+  width: 16vh;
+  }
+
+   .modal-container .modal-background .modal img{
+      width: 100%;
+      height: auto;
+  }
+
+  #youtube {
+    height: 280px;
+  }
+   #drive{
+    height: 400px;
+    width: 100%;
+  }
+  
+  .img-resize{
+    display: none;
+  }
+
+
+}
+
+
+
+@media screen and (max-width:340px){
+  .reduce{
+    font-size: 26px;
+  }
+  .price-box {
+    padding: 0px 20px;
+     margin-bottom: 40px;
+  }
+
+  .footer {
+    padding: 15px 0;
+  }
+  .footer__img {
+    width: 15px;
+  }
+  .contact-info{
+  background-size: contain;
+}
+  .footer__title {
+    font-size: 16px;
+    margin-left: 5px;
+  }
+  .sect {
+    padding: 20px 0;
+  }
+  .sect--padding-top{
+    padding-top: 80px;
+  }
+  .row__sub {
+    font-size: 16px;
+   }
+  .row__title {
+    font-size: 20px;
+    margin-bottom: 5px;
+   }
+  .price-box__title {
+    font-size: 18px;
+    margin-top: 10px;
+}
+  .price-box__img {
+    width: 100px;
+    height: 100px;
+  }
+  .price-box__wrap {
+    padding: 20px 20px 30px 20px;
+  }
+  .price-box__people {
+    font-size: 10px;
+    font-weight: 400;
+  }
+  .price-box__discount {
+    font-size: 22px;
+  }
+  .price-box__price {
+    font-size: 12px;
+  }
+  .price-box__feat {
+      margin-top: 15px;
+      font-size: 14px;
+  }
+  .price-box__list-el {
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+  .site__title {
+    font-size: 24px;
+}
+  .site__subtitle {
+    font-size: 18px;
+    margin: 10px 0 20px 0;
+  }
+  .site__img {
+    margin-top: 30px;
+  }
+  .row--margin {
+    margin-top: 30px;
+}
+  .btn {
+    font-size: 12px;
+    padding: 8px 8px;
+}
+  .btn--width {
+    width: 100px;
+}
+ 
+  .text-box {
+  width: 80%;
+  font-size: 18px;
+  font-weight: 500;
+}
+  
+  #youtube {
+    height: 200px;
+  }
+  
+
+  
+
+}
+  
+  @media (max-height: 500px) {
+     .modal-container .modal-background .modal .card{
+      transform: scale(0.9) translate(0,-35px);
+  }
+}
+  
+ 
+</style>
+  
+<body data-spy="scroll" data-target="#navbar" data-offset="70" class="bg-dark text-light">
+  <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Mozart Studio</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar" aria-controls="myNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="#services">Servicios <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#payment">Planes de pago</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Informes</a>
+        </li>
+      </ul>
+
+      <div class="form-inline my-2 my-lg-0" style="float: right;">
+      <!--  <input class="form-control mr-sm-2" type="email" placeholder="Usuario">
+        <input class="form-control mr-sm-2" type="password" placeholder="Contraseña"> -->
+       <a href="https://app.mozartacademy.mx" ><button class="btn btn-outline-light my-2 my-sm-0"  >Inicia sesión</button></a>
+      </div>
+    </div>
+  </nav>
+
+  <div id="jumbotron" class="jumbotron text-light">
+
+      <h1 class="strong-shadow" style="text-align: center; font-size: 12vw;">Mozart Studio</h1>
+      
+<br><br><br><br><br><br><br><br>
+   
+  
+           
+  </div>
+
+  
+  
+  
+  <div id="services" class="container">
+    <h1 class="reduce">Bienvenido al mundo del piano!</h1>
+    <p id="summary-paragraph">Nos especializamos en el piano. Nuestras clases se enfocan en los fundamentos teóricos y técnicos de la lectura fluida de partituras y la limpieza en la interpretación de piezas. <br><br>Te ofrecemos:</p>
+  </div>
+  <div class="container">
+    <div class="card-deck">
+      <div class="card">
+        <img class="card-img-top" src="https://lh3.googleusercontent.com/d/1XBWyFeO4wVvB8jgYlGjywplnTQjiJJnw" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><i class="ri-award-fill"></i> Calidad de conservatorio</h5>
+          <p class="card-text">Nuestra academia ofrece una educación musical efectiva y de excelencia. Nuestros profesores capacitados te guiarán en cada paso de tu formación.</p>
+        </div>
+      </div> 
+
+
+      <div class="card">
+        <div class="card-img-top"> 
+          <div class="swiper swiper-container-main">
+    <div class="swiper-wrapper">
+       <div class="swiper-slide minimum-height"><img class="card-img-top swiper-slide-img" src="https://lh3.googleusercontent.com/d/1WPV4G0xb_CQUMiiq9bby2C80hnvErplR"></div>
+     <div class="swiper-slide minimum-height"><img class="card-img-top swiper-slide-img" src="https://lh3.googleusercontent.com/d/1HPnBwggEOYTcYvtN--zoqgx3zjaTMxh_"></div> 
+    
+      <div class="swiper-slide minimum-height"><img class="card-img-top swiper-slide-img" src="https://lh3.googleusercontent.com/d/1i9CIMoY2uKv5WKw7EHUYn_FRyafasDnL"></div>
+       
+      <div class="swiper-slide minimum-height"><img class="card-img-top swiper-slide-img" src="https://lh3.googleusercontent.com/d/1xx4RgzHVS1PJC_Y8hrerYKOzg8tfEMmh"></div>
+      <div class="swiper-slide minimum-height"><img class="card-img-top swiper-slide-img" src="https://lh3.googleusercontent.com/d/1oz_MUQCq-0cSMJ0gOWR45CUNI2EVWaTy"></div>
+     
+      
+
+      
+
+
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+    <!-- Add Pagination -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+
+      <!-- Swiper thumbnails -->
+<div class="swiper gallery-thumbs">
+  <div class="swiper-wrapper">
+  </div>       
+</div>     
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"><i class="ri-building-fill"></i> Instalaciones equipadas</h5>
+          <p class="card-text">Disfruta de nuestras instalaciones completamente equipadas con pianos de alta calidad y tecnología integrada.  </p>
+        </div>
+      </div>
+
+ <div class="card">
+         <img class="card-img-top button" src="https://lh3.googleusercontent.com/d/1kVdrBnPhmEByR23rvy--lp-xWDSeHvZL" alt="Card image cap" data-modal="modal2">
+        <div class="card-body">
+          <h5 class="card-title"><i class="ri-calendar-schedule-fill"></i> Horarios flexibles  <div class="img-resize" style="font-size: 15px;">    (Da click en la imagen para ampliarla) </div></h5>
+        
+          <p class="card-text">
+        Nos adaptamos a tu disponibilidad con horarios flexibles que se ajustan a tu rutina. Ya sea clases matutinas, vespertinas o fines de semana, tenemos un horario para ti. </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <br>
+  <div class="container">
+    <div class="card-deck">
+
+      <div class="card">
+        <img class="card-img-top" src="https://lh3.googleusercontent.com/d/1SV55fehgbU5aAnTrs2kZcPVSZJGiXQva" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><i class="ri-discount-percent-line"></i> Costos accesibiles</h5>
+          <p class="card-text">Ofrecemos distintos planes de pago según la cantidad de sesiones que desees tomar. ¿Vives lejos? Plan en línea. ¿Quieres avanzar más rápido? Plan premium. ¡Encuentra tu plan ideal!.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <iframe class="card-img-top" id="youtube" src="https://www.youtube.com/embed/f0TeYaXzSjk?&autoplay=1" > </iframe>
+        <div class="card-body">
+          <h5 class="card-title"><i class="ri-vidicon-2-fill"></i> Participación en eventos</h5>
+          <p class="card-text">Participa en recitales, concursos y presentaciones en auditorios y en nuestras instalaciones. Te promocionamos en nuestras redes.</p>
+        </div>
+      </div>
+
+      <div class="card activate-content">
+        <img class="card-img-top button" data-modal="modal1" src="https://lh3.googleusercontent.com/d/1zFBZ558bRQjXIQWEtQPxWl56eonZNbtr" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><i class="ri-git-repository-fill"></i> Material de calidad<div style="font-size: 14px;">    (Da click en la imagen para consultar nuestro plan de trabajo) </div></h5>
+          <p class="card-text">
+          
+            Te proporcionamos los recursos didácticos mas actuales para garantizarte un aprendizaje efectivo. Te preparamos para la certificación del programa ABRSM.</p>
+        </div>
+      </div>
+     
+    </div>
+  </div>
+
+
+  <div class="sect sect--padding-bottom" >
+    <div class="container" id="payment">
+
+      <div class="container text-center">
+        <h1>Planes de pago</h1>
+        <p>Ofrecemos clases presenciales, en línea por ZOOM y acceso a lecciones en nuestra plataforma.</p>
+      </div>
+     <div class="row row--center row--margin">
+      
+ <!-- First -->
+<div class="col-md-4 col-sm-4 price-box price-box--blue">
+          <div class="swiper swiper-container-main">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+
+        <div class="price-box__wrap">
+          <div class="price-box__img"></div>
+          <h1 class="price-box__title">
+           Plan Standard
+          </h1>
+  <p class="price-box__people">
+            Clases Presenciales
+          </p>
+          <h2 class="price-box__discount">
+            <span class="price-box__dollar">$</span>450<span class="price-box__discount--light">/mes</span>
+          </h2>
+          <h3 class="price-box__price">
+           Aprox. $112 por clase
+          </h3>
+          <p class="price-box__feat">
+            Servicios
+          </p>
+          <ul class="price-box__list">
+            <li class="price-box__list-el">4 clases de 1 hora</li>
+            <li class="price-box__list-el">1 clase a la semana</li>
+          <li class="price-box__list-el">Acceso a la plataforma</li>
+<br>
+          </ul>
+        <!---    <a class="btn btn--blue btn--width button" style="color: white;" data-modal="modal3">Agendar</a> --->
+          <a class="btn btn--blue btn--width button" style="color: white;" href="https://www.mozartacademy.mx/form">Agendar</a>
+        </div>
+
+      </div>
+
+
+      <div class="swiper-slide">
+
+        <div class="price-box__wrap">
+          <div class="price-box__img"></div>
+          <h1 class="price-box__title">
+           Plan PRO
+          </h1>
+ <p class="price-box__people">
+            Clases Presenciales
+          </p>
+          <h2 class="price-box__discount">
+            <span class="price-box__dollar">$</span>750<span class="price-box__discount--light">/mes</span>
+          </h2>
+          <h3 class="price-box__price">
+           Aprox. $93 por clase
+          </h3>
+          <p class="price-box__feat">
+            Servicios
+          </p>
+          <ul class="price-box__list">
+            <li class="price-box__list-el">8 clases de 1 hora</li>
+            <li class="price-box__list-el">2 clases a la semana</li>
+          <li class="price-box__list-el">Acceso a la plataforma</li>
+             <li class="price-box__list-el">Reserva de pianos para prácticas</li>
+<br>
+          </ul>
+      
+            <a class="btn btn--blue btn--width button" style="color: white;" href="https://www.mozartacademy.mx/form">Agendar</a>     
+        </div>
+      </div>
+
+
+      <div class="swiper-slide">
+
+        <div class="price-box__wrap">
+          <div class="price-box__img"></div>
+          <h1 class="price-box__title">
+           Plan PREMIUM
+          </h1>
+ <p class="price-box__people">
+            Clases Presenciales
+          </p>
+          <h2 class="price-box__discount">
+            <span class="price-box__dollar">$</span>1350<span class="price-box__discount--light">/mes</span>
+          </h2>
+          <h3 class="price-box__price">
+           Aprox. $84 por clase
+          </h3>
+          <p class="price-box__feat">
+            Servicios
+          </p>
+          <ul class="price-box__list">
+            <li class="price-box__list-el">8 Clases de 2 horas</li>
+            <li class="price-box__list-el">4 clases a la semana</li>
+         <li class="price-box__list-el">Acceso a la plataforma</li>
+             <li class="price-box__list-el">Reserva de pianos para prácticas</li>
+             <li class="price-box__list-el">Asesoría personalizada en línea</li>
+<br>
+          </ul>
+      
+            <a class="btn btn--blue btn--width button" style="color: white;" href="https://www.mozartacademy.mx/form">Agendar</a>        
+        </div>
+      </div>
+      
+      
+       <div class="swiper-slide">
+
+        <div class="price-box__wrap">
+          <div class="price-box__img"></div>
+          <h1 class="price-box__title">
+           Costo por Clase
+          </h1>
+ <p class="price-box__people">
+            Clases Presenciales
+          </p>
+          <h2 class="price-box__discount">
+            <span class="price-box__dollar">$</span>150<span class="price-box__discount--light">/clase</span>
+          </h2>
+          <p class="price-box__feat">
+            Servicios
+          </p>
+          <ul class="price-box__list">
+            <li class="price-box__list-el">1 clase de 1 hora</li>
+<br>
+          </ul>
+      
+            <a class="btn btn--blue btn--width button" style="color: white;" href="https://wa.me/5215577676657">Agendar</a>        
+        </div>
+      </div>
+
+
+     </div> 
+
+
+       <div class="swiper-pagination"></div>
+    <!-- Add Pagination -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+
+</div>
+</div>
+      
+
+      <!-- second -->
+
+        <div class="col-md-4 col-sm-4 price-box price-box--violet">
+          <div class="swiper swiper-container-main">
+    <div class="swiper-wrapper">
+      
+<div class="swiper-slide">
+
+        <div class="price-box__wrap">
+          <div class="price-box__img"></div>
+          <h1 class="price-box__title">
+          Acceso a la Plataforma
+          </h1>
+ <p class="price-box__people">
+     Curso en línea asíncrono
+          </p>
+          <h2 class="price-box__discount">
+            <span class="price-box__dollar">$</span>150<span class="price-box__discount--light">/mes</span>
+          </h2>
+          <h3 class="price-box__price">
+           Más barato que flowkey y udemy
+          </h3>
+          <p class="price-box__feat">
+            Servicios
+          </p>
+          <ul class="price-box__list">
+           <li class="price-box__list-el">Acceso a lecciones en nuestra plataforma</li>
+              <li class="price-box__list-el">Asesoría personalizada en línea</li>
+<br>
+          </ul>
+      
+         <!---   <a class="btn btn--violet btn--width button" style="color: white;" data-modal="modal4">Agendar</a> --->
+         
+          
+           <a class="btn btn--violet btn--width button" style="color: white;"  href="https://app.mozartacademy.mx">Acceder</a>
+          
+        </div>
+
+      </div>
+
+      <div class="swiper-slide">
+
+        <div class="price-box__wrap">
+          <div class="price-box__img"></div>
+          <h1 class="price-box__title">
+           Acceso anual
+          </h1>
+ <p class="price-box__people">
+          Curso en línea asíncrono
+          </p>
+          <h2 class="price-box__discount">
+            <span class="price-box__dollar">$</span>1000<span class="price-box__discount--light">/año</span>
+          </h2>
+          <p class="price-box__feat">
+            Servicios
+          </p>
+          <ul class="price-box__list">
+              <li class="price-box__list-el">Acceso a la plataforma</li>
+              <li class="price-box__list-el">Asesoría personalizada</li>
+
+<br>
+          </ul>
+      
+            <a class="btn btn--violet btn--width button" style="color: white;"  href="https://app.mozartacademy.mx">Acceder</a>
+          
+        </div>
+
+      </div>
+      
+      
+      <div class="swiper-slide">
+
+        <div class="price-box__wrap">
+          <div class="price-box__img"></div>
+          <h1 class="price-box__title">
+         Acceso Permanente
+          </h1>
+  <p class="price-box__people">
+            Curso en línea asíncrono
+          </p>
+          <h2 class="price-box__discount">
+            <span class="price-box__dollar">$</span>2499<span class="price-box__discount--light">/total</span>
+          </h2>
+          <p class="price-box__feat">
+            Servicios
+          </p>
+          <ul class="price-box__list">
+       <li class="price-box__list-el">Compra todo nuestro curso</li>
+            <li class="price-box__list-el">Acceso a la plataforma de por vida</li>
+<br>
+          </ul>
+            <a class="btn btn--violet btn--width button" style="color: white;"  href="https://app.mozartacademy.mx">Acceder</a>
+        </div>
+
+      </div>
+
+
+     </div> 
+
+
+       <div class="swiper-pagination"></div>
+    <!-- Add Pagination -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+
+</div>
+    
+      </div>
+
+
+
+
+
+      <!-- Third-->    
+
+
+       <div class="col-md-4 col-sm-4 price-box price-box--purple">
+          <div class="swiper swiper-container-main">
+    <div class="swiper-wrapper">
+
+      <div class="swiper-slide">
+
+        <div class="price-box__wrap">
+          <div class="price-box__img"></div>
+          <h1 class="price-box__title">
+          Clases por ZOOM
+          </h1>
+  <p class="price-box__people">
+          Curso en línea sincronico
+          </p>
+          <h2 class="price-box__discount">
+            <span class="price-box__dollar">$</span>350<span class="price-box__discount--light">.00</span>
+          </h2>
+           <h3 class="price-box__price">
+           Aprox. $87 por clase
+          </h3>
+          <p class="price-box__feat">
+            Servicios
+          </p>
+          <ul class="price-box__list">
+            <li class="price-box__list-el">4 Clases de 1 hora</li>
+            <li class="price-box__list-el">Acceso a la plataforma</li>
+             <li class="price-box__list-el">Asesoría personalizada</li>
+<br>
+          </ul>
+            <a class="btn btn--purple btn--width" style="color: white;" href="https://wa.me/5215577676657">Agendar</a>
+        </div>
+
+      </div>
+
+
+
+
+      <div class="swiper-slide">
+        <div class="price-box__wrap">
+          <div class="price-box__img"></div>
+          <h1 class="price-box__title">
+           Clases híbridas
+          </h1>
+ <p class="price-box__people">
+            Clases presenciales y en línea
+          </p>
+          <h2 class="price-box__discount">
+            <span class="price-box__dollar">$</span>300<span class="price-box__discount--light">/mes</span>
+          </h2>
+          <p class="price-box__feat">
+            Servicios
+          </p>
+          <ul class="price-box__list">
+            <li class="price-box__list-el">1 Clase por ZOOM</li>
+            <li class="price-box__list-el">1 Clase presencial</li>
+          <li class="price-box__list-el">Acceso a la plataforma</li>
+              <li class="price-box__list-el">Asesoría personalizada en línea</li>
+<br>
+          </ul>
+      
+            <a class="btn btn--purple btn--width button" style="color: white;" href="https://wa.me/5215577676657">Agendar</a>
+          
+        </div>
+      </div>
+      
+
+ <!--      <div class="swiper-slide">
+
+        <div class="price-box__wrap">
+          <div class="price-box__img"></div>
+          <h1 class="price-box__title">
+           Descuento a Estudiantes UNAM
+          </h1>
+ <p class="price-box__people">
+            Clases Presenciales
+          </p>
+          <h2 class="price-box__discount">
+            <span class="price-box__dollar">$</span>350<span class="price-box__discount--light">/mes</span>
+          </h2>
+           <h3 class="price-box__price" style="text-decoration: line-through;">
+           $450/mes
+          </h3>
+          <p class="price-box__feat">
+            Servicios
+          </p>
+          <ul class="price-box__list">
+            <li class="price-box__list-el">4 Clases de 1 hora</li>
+            <li class="price-box__list-el">1 clase a la semana</li>
+          <li class="price-box__list-el">Acceso a la plataforma</li>
+              <li class="price-box__list-el">Reserva de pianos para prácticas</li>
+<br>
+          </ul>
+      
+            <a class="btn btn--purple btn--width button" style="color: white;" href="https://www.mozartacademy.mx/form">Agendar</a>
+          
+        </div>
+
+      </div>  -->
+
+
+
+     </div> 
+
+
+       <div class="swiper-pagination"></div>
+    <!-- Add Pagination -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+
+</div>
+    
+      </div>
+
+ <!-- End-->
+
+    
+    </div>
+  </div>
+  </div>
+
+  <div id="contact" class="contact-info" style="background-color: #202830;">
+    <div class="container text-center strong-shadow ">
+  
+      <h3 class="card-title"> Cupo limitado </h3>  
+      <h2 class="card-title">¡Aparta tu lugar!</h2> <br>
+     
+      <br>
+    </div>    
+  </div>
+  
+  <div class="text-center" style="margin-top: 15px;">
+            <button class="btn btn-outline-light mb-2" id="redirectButton">Más información</button>
+          </div>
+  
+  <section class="trial-block shadow3">
+             <div class="social-overlap process-scetion ">
+              <div class="container">
+                  <div class="row justify-content-center">
+                          <div class="social-bar">
+                              <div class="social-icons text-center">
+                                 
+                                  
+                <a href="https://www.facebook.com/mozart.academy" class="slider-nav-item"><i class="ri-facebook-fill"></i></a>
+                                
+                                 
+               <a href="https://www.instagram.com/mozart.academy_/"  class="slider-nav-item"><i class="ri-instagram-line"></i></a>
+                                 
+                                  <a href="https://www.youtube.com/@TallerdePiano" class="slider-nav-item"><i class="ri-youtube-fill"></i></a>
+                                 <a href="https://maps.app.goo.gl/Jhf1sMdnQ7QRA3RP9"  class="slider-nav-item"><i class="ri-map-pin-line"></i></a> <!-- https://twitter.com/m0zart_studio -->
+                                  <a href="https://wa.me/5215577676657"  class="slider-nav-item"><i class="ri-whatsapp-line"></i></a>
+                             
+                              </div>
+                          </div>
+                  </div>
+              </div>
+          </div>   
+</section>
+  
+  
+
+  <footer class="fixed-bottom">
+      <div class="col-md-2 col-xs-6">
+       <h1 class="footer__title">mozart<span class="footer__light">.studio</span></h1>   
+      </div> 
+  </footer>
+
+
+  
+  
+  <div id="modal1" class="modal-container modal-hidden">
+  <div class="modal-background">
+    <div class="modal"> 
+     
+
+    <iframe id="drive" src=" https://drive.google.com/file/d/1O2vidBGrC8lWRg9Z6uyi9eqfGtJtCbVX/preview" frameborder="0" ></iframe>
+
+    </div>
+  </div>
+</div>
+  
+  
+<div id="modal2" class="modal-container modal-hidden">
+  <div class="modal-background">
+    <div class="modal"> 
+     
+
+     <img src="https://lh3.googleusercontent.com/d/1kVdrBnPhmEByR23rvy--lp-xWDSeHvZL">
+
+    </div>
+  </div>
+</div>
+
+
+
+
+<!--
+ <div ng-app="myApp"> 
+  <div id="modal3" class="modal-container modal-hidden">
+  <div class="modal-background">
+    <div class="modal form-insc"> 
+       
+<div class="card" ng-controller="FormController1" >
+              <div class="card-body">
+                <h4>Formulario de registro</h4>
+                <div class="settings-profile">
+                  <div class="form-row mt-4">
+                    <div class="col-md-6">
+                      <label for="dayList">Día</label>
+                      <select id="dayList" class="form-control" ng-model="formData.dia" ng-change="updateHourList()" ng-options="day for day in days">
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <label ng-if="formData.dia" for="hourList">Hora</label>
+                      <select ng-if="formData.dia" id="hourList" class="form-control" ng-model="formData.hora" ng-options="hour for hour in hours">
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <label ng-if="formData.hora" for="dateClass">Fecha de tu primer clase</label>
+                      <select ng-if="formData.hora" id="dateClass" class="form-control" ng-model="formData.fecha" ng-options="date for date in dates">
+                      </select>
+                    </div>
+                    
+                     <div class="col-md-6">
+                      <label for="formFirst" ng-if="formData.fecha">Nombre</label>
+                      <input id="formFirst" type="text" class="form-control" placeholder="Nombre completo" autocomplete="off" ng-model="formData.nombre" ng-if="formData.fecha">
+                    </div>
+                    <div class="col-md-6">
+                      <label for="phone" ng-if="formData.fecha">Teléfono</label>
+                      <input type="text" inputmode="numeric" pattern="[0-9]*" class="form-control" maxlength="10" id="phone" autocomplete="off" placeholder="Número de teléfono" ng-model="formData.telefono" ng-if="formData.fecha">
+                    </div>
+                    
+                    
+                  </div>
+                </div>
+               </div>  
+                <div class="modal-footer col-md-12">
+                  <button class="btn btn-default" type="button" ng-click="cancel()">Cancel</button>
+                    <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+                </div>
+            </div>
+
+    </div>
+  </div>
+</div>
+
+ <div id="modal4" class="modal-container modal-hidden">
+  <div class="modal-background">
+    <div class="modal form-insc"> 
+       
+<div class="card" ng-controller="FormController2" >
+              <div class="card-body">
+                <h4>Formulario de registro</h4>
+                <div class="settings-profile">
+                  <div class="form-row mt-4">
+                    <div class="col-md-6">
+                      <label for="dayList">Día</label>
+                      <select id="dayList" class="form-control" ng-model="formData.dia" ng-change="updateHourList()" ng-options="day for day in days">
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <label ng-if="formData.dia" for="hourList">Hora</label>
+                      <select ng-if="formData.dia" id="hourList" class="form-control" ng-model="formData.hora" ng-options="hour for hour in hours">
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <label ng-if="formData.hora" for="dateClass">Fecha de tu primer clase</label>
+                      <select ng-if="formData.hora" id="dateClass" class="form-control" ng-model="formData.fecha" ng-options="date for date in dates">
+                      </select>
+                    </div>
+                    
+                     <div class="col-md-6">
+                      <label for="formFirst" ng-if="formData.fecha">Nombre</label>
+                      <input id="formFirst" type="text" class="form-control" placeholder="Nombre completo" autocomplete="off" ng-model="formData.nombre" ng-if="formData.fecha">
+                    </div>
+                    <div class="col-md-6">
+                      <label for="phone" ng-if="formData.fecha">Teléfono</label>
+                      <input type="text" inputmode="numeric" pattern="[0-9]*" class="form-control" maxlength="10" id="phone" autocomplete="off" placeholder="Número de teléfono" ng-model="formData.telefono" ng-if="formData.fecha">
+                    </div>
+                    
+                    
+                  </div>
+                </div>
+               </div>  
+                <div class="modal-footer col-md-12">
+                  <button class="btn btn-default" type="button" ng-click="cancel()">Cancel</button>
+                    <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+                </div>
+            </div>
+
+    </div>
+  </div>
+</div> -->
+   
+   
+</div>
+
+</body>
+
+  <script>
+    $(".navbar-nav>li>a").on("click", function() {
+  $(".navbar-collapse").collapse("hide");
+});
+
+document.getElementById('redirectButton').addEventListener('click', function() {
+  window.location.href = 'https://wa.me/5215577676657?text=Hola,%20me%20interesa%20recibir%20informaci%C3%B3n%20acerca%20de%20las%20clases%20de%20piano%20%F0%9F%8E%B9'; 
+});
+
+function toggleCard() {
+    const frontSide = document.getElementById("front-1");
+    const backSide = document.getElementById("back-1");
+    if (frontSide.classList.contains("showGreen")) {
+      frontSide.classList.remove("showGreen");
+      backSide.classList.remove("showRed");
+    } else {
+      frontSide.classList.add("showGreen");
+      backSide.classList.add("showRed");
+    }
+  }
+    
+$(document).ready(function() {
+  $('.button').click(function() {
+    var modalId = $(this).data('modal');
+    $('#' + modalId).removeClass('modal-hidden').addClass('four');
+    $('body').addClass('modal-active');
+  });
+
+  $('.modal-container').click(function() {
+    $(this).addClass('out');
+    $('body').removeClass('modal-active');
+    var modal = $(this);
+    setTimeout(function() {
+      modal.removeClass('four out').addClass('modal-hidden');
+    }, 500); // Ajusta el tiempo según la duración de tu animación
+  });
+  
+  $('.form-insc').click(function(event) {
+                event.stopPropagation();
+            });
+});
+    
+    
+    
+<!-- Initialize Swiper -->
+var galleryThumbs = new Swiper('.gallery-thumbs', {
+
+});
+
+
+var swiper = new Swiper('.swiper-container-main', {
+  autoHeight: true, //enable auto height
+
+  //runCallbacksOnInit: true,
+  observer: true,
+  observeParents: true,
+  observeChildren: true,
+  spaceBetween: 0,
+
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  loop: true,
+  preloadImages: false,
+  // Enable lazy loading
+  lazy: true,
+  lazy: {
+    loadPrevNext: true,
+  },
+
+  keyboard: {
+    enabled: true,
+  },
+
+  effect: 'coverflow',
+  coverflowEffect: {
+    rotate: 60,
+    slideShadows: false,
+  },
+  loop: true,
+  thumbs: {
+    swiper: galleryThumbs
+  }
+
+});
+    
+    
+    
+    
+   /* 
+    
+angular.module('myApp', [])
+  .controller('FormController1', ['$scope', function($scope) {
+    $scope.formData = {};
+
+
+    $scope.classtime = {
+      lunes: ["12:00 a 13:00 Hrs", "13:00 a 14:00 Hrs", "14:00 a 15:00 Hrs", "15:00 a 16:00 Hrs", "16:00 a 17:00 Hrs", "17:00 a 18:00 Hrs", "18:00 a 19:00 Hrs"],
+      martes: ["12:00 a 13:00 Hrs", "13:00 a 14:00 Hrs", "14:00 a 15:00 Hrs", "15:00 a 16:00 Hrs", "16:00 a 17:00 Hrs", "17:00 a 18:00 Hrs", "18:00 a 19:00 Hrs"],
+      miercoles: ["12:00 a 13:00 Hrs", "13:00 a 14:00 Hrs", "14:00 a 15:00 Hrs", "15:00 a 16:00 Hrs", "16:00 a 17:00 Hrs", "17:00 a 18:00 Hrs", "18:00 a 19:00 Hrs"],
+      jueves: ["12:00 a 13:00 Hrs", "13:00 a 14:00 Hrs", "14:00 a 15:00 Hrs", "15:00 a 16:00 Hrs", "16:00 a 17:00 Hrs", "17:00 a 18:00 Hrs", "18:00 a 19:00 Hrs"],
+      viernes: ["11:00 a 12:00 Hrs", "12:00 a 13:00 Hrs", "13:00 a 14:00 Hrs", "14:00 a 15:00 Hrs", "15:00 a 16:00 Hrs"],
+      sabado: ["9:00 a 10:00 Hrs", "10:00 a 11:00 Hrs", "11:00 a 12:00 Hrs", "14:00 a 15:00 Hrs", "15:00 a 16:00 Hrs"],
+      domingo: ["9:00 a 10:00 Hrs", "10:00 a 11:00 Hrs", "11:00 a 12:00 Hrs", "12:00 a 13:00 Hrs"]
+    };
+
+    $scope.capacity = {
+      lunes: {
+        "12:00 a 13:00 Hrs": 2,
+        "13:00 a 14:00 Hrs": 2,
+        "14:00 a 15:00 Hrs": 1,
+        "15:00 a 16:00 Hrs": 1,
+        "16:00 a 17:00 Hrs": 2,
+        "17:00 a 18:00 Hrs": 1,
+        "18:00 a 19:00 Hrs": 1
+      },
+      martes: {
+         "12:00 a 13:00 Hrs": 2,
+        "13:00 a 14:00 Hrs": 2,
+        "14:00 a 15:00 Hrs": 1,
+        "15:00 a 16:00 Hrs": 1,
+        "16:00 a 17:00 Hrs": 2,
+        "17:00 a 18:00 Hrs": 1,
+        "18:00 a 19:00 Hrs": 1
+      },
+      miercoles: {
+        "12:00 a 13:00 Hrs": 2,
+        "13:00 a 14:00 Hrs": 2,
+        "14:00 a 15:00 Hrs": 1,
+        "15:00 a 16:00 Hrs": 1,
+        "16:00 a 17:00 Hrs": 2,
+        "17:00 a 18:00 Hrs": 1,
+        "18:00 a 19:00 Hrs": 1
+      },
+      jueves: {
+        "12:00 a 13:00 Hrs": 2,
+        "13:00 a 14:00 Hrs": 2,
+        "14:00 a 15:00 Hrs": 1,
+        "15:00 a 16:00 Hrs": 1,
+        "16:00 a 17:00 Hrs": 2,
+        "17:00 a 18:00 Hrs": 1,
+        "18:00 a 19:00 Hrs": 1
+      },
+      viernes: {
+        "11:00 a 12:00 Hrs": 1,
+        "12:00 a 13:00 Hrs": 2,
+        "13:00 a 14:00 Hrs": 1,
+        "14:00 a 15:00 Hrs": 2,
+        "15:00 a 16:00 Hrs": 2,
+      },
+      sabado: {
+        "9:00 a 10:00 Hrs": 1,
+        "10:00 a 11:00 Hrs": 3,
+        "11:00 a 12:00 Hrs": 2,
+        "14:00 a 15:00 Hrs": 4,
+        "15:00 a 16:00 Hrs": 2,
+      },
+      domingo: {
+        "9:00 a 10:00 Hrs": 1,
+        "10:00 a 11:00 Hrs": 2,
+        "11:00 a 12:00 Hrs": 3,
+        "12:00 a 13:00 Hrs": 2,
+      }
+    };
+    
+
+        $scope.days = ["Jueves", "Viernes", "Sábado", "Domingo"];
+
+
+    $scope.updateHourList = function() {
+      var plan = $scope.formData.plan;
+      var day = $scope.formData.dia;
+      $scope.dates = getDat(day);
+      const selectedDay = $scope.formData.dia.toLowerCase();
+      const availableHours = $scope.classtime[selectedDay] || [];
+      $scope.hours = availableHours.filter(hour => $scope.capacity[selectedDay][hour] > 0);
+      if (plan.includes("ESTUDIANTE") && day == "Sábado") {
+        $scope.hours = ["13:00 a 14:00 Hrs"];
+      }
+    };
+
+    $scope.submitForm = function() {
+      console.log('Form submitted with:', $scope.formData);
+    };
+
+   
+    
+    function getDat(day) {
+      const options = { weekday: 'long', month: 'long', day: 'numeric' };
+      const date1 = new Date();
+      const currentDay = date1.getDay();
+      var dayOfWeek = getNumDay(day);
+      const daysUntilNextDay = (dayOfWeek + 7 - currentDay) % 7;
+      const daysToAdd = daysUntilNextDay === 0 ? 7 : daysUntilNextDay;
+      date1.setDate(date1.getDate() + daysToAdd);
+      var date2 = new Date(date1);
+      date2.setDate(date2.getDate() + 7);
+  
+      var dat1 = date1.toLocaleDateString("es-mx", options).replace(",", "");
+      var dat2 = date2.toLocaleDateString("es-mx", options).replace(",", "");
+      return [dat1.charAt(0).toUpperCase() + dat1.slice(1), dat2.charAt(0).toUpperCase() + dat2.slice(1)];
+    }
+
+    function getNumDay(day) {
+      switch(day) {
+        case "Domingo":
+          return 0;
+        case "Lunes":
+          return 1;
+        case "Martes":
+          return 2;
+        case "Miércoles":
+          return 3;
+        case "Jueves":
+          return 4;
+        case "Viernes":
+          return 5;
+        case "Sábado":
+          return 6;
+        default:
+          return 0;
+      }
+    }
+    
+    
+    $scope.cancel = function() {
+        var modal = angular.element(document.getElementById('modal3'));
+        modal.addClass('out');
+        angular.element(document.body).removeClass('modal-active');
+        setTimeout(function() {
+            modal.removeClass('four out').addClass('modal-hidden');
+        }, 500); // Ajusta el tiempo según la duración de tu animación
+    };
+    
+  }])
+.controller('FormController2', ['$scope', function($scope) {
+    $scope.formData = {};
+
+
+    $scope.classtime = {
+      lunes: ["19:00 a 20:00 Hrs", "20:00 a 21:00 Hrs", "21:00 a 22:00 Hrs"],
+      martes: ["19:00 a 20:00 Hrs", "20:00 a 21:00 Hrs", "21:00 a 22:00 Hrs"],
+      miercoles: ["19:00 a 20:00 Hrs", "20:00 a 21:00 Hrs", "21:00 a 22:00 Hrs"],
+      jueves: ["19:00 a 20:00 Hrs", "20:00 a 21:00 Hrs", "21:00 a 22:00 Hrs"],
+      sabado: ["12:00 a 13:00 Hrs", "13:00 a 14:00 Hrs"],
+
+    };
+
+    $scope.capacity = {
+      lunes: {
+        "19:00 a 20:00 Hrs": 2,
+        "20:00 a 21:00 Hrs": 2,
+        "21:00 a 22:00 Hrs": 1
+      },
+      martes: {
+        "19:00 a 20:00 Hrs": 2,
+        "20:00 a 21:00 Hrs": 2,
+        "21:00 a 22:00 Hrs": 1
+      },
+      miercoles: {
+        "19:00 a 20:00 Hrs": 2,
+        "20:00 a 21:00 Hrs": 2,
+        "21:00 a 22:00 Hrs": 1
+      },
+      jueves: {
+        "19:00 a 20:00 Hrs": 2,
+        "20:00 a 21:00 Hrs": 2,
+        "21:00 a 22:00 Hrs": 1
+      },
+      viernes: {
+        "11:00 a 12:00 Hrs": 1,
+        "12:00 a 13:00 Hrs": 2,
+        "13:00 a 14:00 Hrs": 1,
+        "14:00 a 15:00 Hrs": 2,
+        "15:00 a 16:00 Hrs": 2,
+      },
+      sabado: {
+        "12:00 a 13:00 Hrs": 1,
+        "13:00 a 14:00 Hrs": 3
+      }
+    };
+    
+
+        $scope.days = ["Lunes", "Martes", "Miércoles", "Jueves", "Sábado"];
+
+
+    $scope.updateHourList = function() {
+      var plan = $scope.formData.plan;
+      var day = $scope.formData.dia;
+      $scope.dates = getDat(day);
+      const selectedDay = $scope.formData.dia.toLowerCase();
+      const availableHours = $scope.classtime[selectedDay] || [];
+      $scope.hours = availableHours.filter(hour => $scope.capacity[selectedDay][hour] > 0);
+      if (plan.includes("ESTUDIANTE") && day == "Sábado") {
+        $scope.hours = ["13:00 a 14:00 Hrs"];
+      }
+    };
+
+    $scope.submitForm = function() {
+      console.log('Form submitted with:', $scope.formData);
+    };
+
+   
+    
+    function getDat(day) {
+      const options = { weekday: 'long', month: 'long', day: 'numeric' };
+      const date1 = new Date();
+      const currentDay = date1.getDay();
+      var dayOfWeek = getNumDay(day);
+      const daysUntilNextDay = (dayOfWeek + 7 - currentDay) % 7;
+      const daysToAdd = daysUntilNextDay === 0 ? 7 : daysUntilNextDay;
+      date1.setDate(date1.getDate() + daysToAdd);
+      var date2 = new Date(date1);
+      date2.setDate(date2.getDate() + 7);
+  
+      var dat1 = date1.toLocaleDateString("es-mx", options).replace(",", "");
+      var dat2 = date2.toLocaleDateString("es-mx", options).replace(",", "");
+      return [dat1.charAt(0).toUpperCase() + dat1.slice(1), dat2.charAt(0).toUpperCase() + dat2.slice(1)];
+    }
+
+    function getNumDay(day) {
+      switch(day) {
+        case "Domingo":
+          return 0;
+        case "Lunes":
+          return 1;
+        case "Martes":
+          return 2;
+        case "Miércoles":
+          return 3;
+        case "Jueves":
+          return 4;
+        case "Viernes":
+          return 5;
+        case "Sábado":
+          return 6;
+        default:
+          return 0;
+      }
+    }
+    
+    
+    $scope.cancel = function() {
+        var modal = angular.element(document.getElementById('modal4'));
+        modal.addClass('out');
+        angular.element(document.body).removeClass('modal-active');
+        setTimeout(function() {
+            modal.removeClass('four out').addClass('modal-hidden');
+        }, 500); // Ajusta el tiempo según la duración de tu animación
+    };
+    
+  }])
+
+*/
+
+  </script>
+
+</html>
