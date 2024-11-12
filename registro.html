@@ -2,7 +2,7 @@
 <head>
  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1.0, user-scalable=no">
 <link rel="icon" href="https://lh3.googleusercontent.com/d/1k9LA88h-FVVn9EeryBRVBrtc5tPl92CK" type="image/x-icon">
-    <title>Mozart Academy</title>
+    <title>Mozart Studio</title>
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.nanoscroller/0.8.7/css/nanoscroller.min.css">
@@ -10,11 +10,214 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nanoscroller/0.8.7/javascripts/jquery.nanoscroller.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+
 </head>
 
 
 <style>
-  :root {
+
+
+
+.begin-container {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center;    /* Centra verticalmente */
+  height: 100vh; 
+  margin-top: 160px;
+  margin-left: -20px;
+}
+
+.begin {
+  border: 1px solid #e0e3eb;
+  border-radius: 5px;
+  font-size: 20px;
+  height: 50px;
+  width: 145px;
+  background: #007bff;
+  color: white;            /* Añadido para mejor contraste */
+  font-weight: 600;
+  padding: 10px 25px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.slider {
+  position: relative;
+  margin-left: -8px;
+  margin-top: -8px;
+  height: 100vh;
+  width: 100vw;
+  background: #777;
+  overflow: hidden;
+}
+.slider__wrap {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  transform: translateX(100vw);
+  top: 0%;
+  left: 0;
+  right: auto;
+  overflow: hidden;
+  transition: transform 450ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  transform-origin: 0% 50%;
+  transition-delay: 450ms;
+  opacity: 0;
+}
+.slider__wrap--hacked {
+  opacity: 1;
+}
+.slider__back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: auto 100%;
+  background-position: center;
+  background-repeat: none;
+  transition: filter 450ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+.slider__inner {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: -5%;
+  right: 1%;
+  background-size: auto 133.3333%;
+  background-position: center;
+  background-repeat: none;
+  transform: scale(0.75);
+  transition: transform 450ms cubic-bezier(0.785, 0.135, 0.15, 0.86), box-shadow 450ms cubic-bezier(0.785, 0.135, 0.15, 0.86), opacity 450ms step-end;
+  opacity: 0;
+  box-shadow: 0 3vh 3vh rgba(0, 0, 0, 0);
+  box-sizing: border-box;
+}
+.slider__content {
+  position: relative;
+
+  width: auto;
+  transform: translateY(-50%);
+transform: scale(1.2);
+  font-family: "Heebo", sans-serif;
+  opacity: 0;
+  transition: opacity 450ms;
+}
+.slider__content h3 { 
+
+  font-size: 30px;
+}
+.slider__content h5 {
+  font-size: 23px;
+}
+
+.slider__slide {
+  position: absolute;
+  left: 0;
+  height: 100vh;
+  width: 111vw;
+  transition: transform 600ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  transition-delay: 600ms;
+  pointer-events: none;
+  z-index: 0;
+}
+.slider__slide--active {
+  transform: translatex(0%);
+  z-index: 2;
+}
+.slider__slide--active .slider__wrap {
+  transform: translateX(0);
+  transform-origin: 100% 50%;
+  opacity: 1;
+  -webkit-animation: none;
+          animation: none;
+}
+.slider__slide--active .slider__back {
+  filter: blur(1.5vh);
+  transition: filter 900ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  transition-delay: 900ms !important;
+}
+.slider__slide--active .slider__inner {
+  transform: scale(0.8);
+  box-shadow: 0 1vh 6vh rgba(0, 0, 0, 0.2);
+  pointer-events: auto;
+  opacity: 1;
+  transition: transform 900ms cubic-bezier(0.785, 0.135, 0.15, 0.86), box-shadow 900ms cubic-bezier(0.785, 0.135, 0.15, 0.86), opacity 1ms step-end;
+  transition-delay: 900ms;
+}
+.slider__slide--active .slider__content {
+  opacity: 1;
+  transition-delay: 1350ms;
+}
+.slider__slide:not(.slider__slide--active) .slider__wrap {
+  -webkit-animation-name: hack;
+          animation-name: hack;
+  -webkit-animation-duration: 900ms;
+          animation-duration: 900ms;
+  -webkit-animation-delay: 450ms;
+          animation-delay: 450ms;
+  -webkit-animation-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+          animation-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+@-webkit-keyframes hack {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-100vw);
+    opacity: 1;
+  }
+  51% {
+    transform: translateX(-100vw);
+    opacity: 0;
+  }
+  52% {
+    transform: translateX(100vw);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(100vw);
+    opacity: 1;
+  }
+}
+@keyframes hack {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-100vw);
+    opacity: 1;
+  }
+  51% {
+    transform: translateX(-100vw);
+    opacity: 0;
+  }
+  52% {
+    transform: translateX(100vw);
+    opacity: 0;
+  } 
+  100% {
+    transform: translateX(100vw);
+    opacity: 1;
+  }
+}
+.slider__slide:nth-child(1) .slider__back, .slider__slide:nth-child(1) .slider__inner {
+  background-image: url(https://lh3.googleusercontent.com/d/1fULd1JKA0gaJkgupWc9UWW8bNBYLEZQf);
+}
+.slider__slide:nth-child(2) .slider__back, .slider__slide:nth-child(2) .slider__inner {
+  background-image: url(https://lh3.googleusercontent.com/d/1WPV4G0xb_CQUMiiq9bby2C80hnvErplR);
+}
+
+
+   
+  
+  
+  
+  
+  
+  
+   :root {
   --app-bg-color: #1C1D21;
   --app-dark-color: #31353D;
   --app-accent-color: #445878;
@@ -22,17 +225,16 @@
   --app-light-color: #EEEFF7;
 }
 
-html, body { min-height: 100%; overflow: hidden; }
+
 
 body {
   font-family: 'Roboto', sans-serif;
   color: #444;
-  background-color: #EEEFF7;
-  background-image:linear-gradient(120deg, #00c6ff 0%, #0072ff 100%);
+  background-color: #f8f9fa;
 }
 
 .wrap {
-  background-color: #1C1D21;
+  background-color: white;
   position: relative;
   display: block;
   height: 610px;
@@ -45,14 +247,14 @@ body {
 .headbar {
   width: calc(100% - 15px);
     height: 60px;
-    color: #fff;
-    background-color: var(--app-accent-color);
+    color: black;
+    background-color: white;
     display: flex;
     align-items: center;
     padding-left: 15px;
     font-size: 1.1em;
     font-weight: 500;
-	 margin-bottom: 20px;
+   margin-bottom: 20px;
 }
 
 .headbar .btnBack { 
@@ -130,7 +332,7 @@ div.rotate span:nth-child(3) { animation-delay: .3s }
 
 .content {
   height: calc(100% - 210px);
-  background-color: var(--app-bg-color);
+  background-color: transparent;
   position: relative;
   overflow: hidden;
   transition: all 0.8s ease;
@@ -189,7 +391,8 @@ div.rotate span:nth-child(3) { animation-delay: .3s }
   display: flex;
   align-items: center;
   padding: 5px;
-  background: #1C1D21; /*var(--app-bg-color);*/
+  color: black !important;
+  background: white; /*var(--app-bg-color);*/
   border-bottom: solid 1px rgba(255, 255, 255, 0.05);
   /*border-top: solid 1px rgba(0, 0, 0, 0.4);*/
   transition: all .4s ease;
@@ -218,7 +421,8 @@ div.rotate span:nth-child(3) { animation-delay: .3s }
 .control h6 { 
   margin: 5px 0;
   font-weight: 400;
-  color: #bbb;
+  font-size: 12px;
+  color: #71797E;
 }
 
 .control.open:nth-child(2) { top: -72px; }
@@ -340,6 +544,7 @@ div.rotate span:nth-child(3) { animation-delay: .3s }
 .dateinput .calendar .month { 
   justify-content: space-around;
   background-color: var(--app-accent-color);
+  color: white;
   margin-left: -5px; 
 }
 
@@ -359,7 +564,7 @@ div.rotate span:nth-child(3) { animation-delay: .3s }
 }
 
 .dateinput .calendar .week span {
-  color: var(--app-alt-color);
+  color: black;
   font-weight: 400;
 }
 
@@ -378,9 +583,11 @@ div.rotate span:nth-child(3) { animation-delay: .3s }
 }
 
 .dateinput .calendar .days span.checked:before {
-  background-color: rgba(112, 225, 245, 0.3);
+  background-color: rgba(68, 88, 120, 0.5);
   border-radius: 50%;
   transition: all .4s ease;
+   margin-top: -1px;
+
 }
 
 .dateinput .calendar .days span:first-child {
@@ -393,7 +600,7 @@ div.rotate span:nth-child(3) { animation-delay: .3s }
     font-weight: 400;
     font-style: italic;
   font-size: .75em;
-  color: var(--app-alt-color);
+  color: red;
   letter-spacing: .06em; 
 }
 .info-message  i {
@@ -455,13 +662,13 @@ div.rotate span:nth-child(3) { animation-delay: .3s }
   padding: 10px 2px;
   border: none;
   border-radius: 2px;
-  color: #fff;
-  background-color: var(--app-dark-color); /*#2196F3*/
+
+  background-color: rgba(0,0,0, .1);
   outline: none;
   text-transform: uppercase;
 }
 
-.control button:hover { background-color: rgba(255,255,255, .2); }
+.control button:hover { background-color: rgba(0,0,0, .2); }
 
 .list article {
   display: flex;
@@ -471,7 +678,7 @@ div.rotate span:nth-child(3) { animation-delay: .3s }
 }
 
 .list article:nth-child(2n+1) {
-  background-color: rgba(255,255,255,.04);
+  background-color: rgba(229, 228, 226, 0.5);
 }
 
 .list article div.img {
@@ -494,7 +701,7 @@ div.rotate span:nth-child(3) { animation-delay: .3s }
 .list article .info {
   padding: 10px;
   width: 100%;
-  color: #e5e5e5;
+  color: #31353D;
   font-size: .8em;
   position: relative;
   opacity: 0;
@@ -511,7 +718,7 @@ div.rotate span:nth-child(3) { animation-delay: .3s }
 .info span { display: block; }
 .info b { font-weight: 400; }
 .info .time {
-  color: #bbb;
+  color: #71797E;
   position: absolute;
   right: 10px;
   top: 10px;
@@ -531,7 +738,7 @@ div.rotate span:nth-child(3) { animation-delay: .3s }
 }
 
 .info h5 small {
-  color: #bbb;
+  color: #71797E;
   font-size: .6em;
 }
 
@@ -542,7 +749,9 @@ div.rotate span:nth-child(3) { animation-delay: .3s }
 }
 
 .ticket section {
-  background-color: var(--app-dark-color);
+  background-color: white;
+  color: #4A4A4A;
+  font-weight: 300;
   height: 350px;
   margin: 10px 20px;
     border-radius: 2px;
@@ -579,7 +788,8 @@ div.rotate span:nth-child(3) { animation-delay: .3s }
 
 .ticket .cell small {
   display: block;
-  color: var(--app-alt-color);
+  color: #4A4A4A;
+  font-weight: 700;
 }
 
 .ticket .total {
@@ -593,7 +803,7 @@ div.rotate span:nth-child(3) { animation-delay: .3s }
 
 .ticket .total small {
   margin-right: 10px;
-    color: #92cdcf;
+  color: gray;
 }
 
 .ticket button {
@@ -602,12 +812,17 @@ div.rotate span:nth-child(3) { animation-delay: .3s }
   margin: 10px 20px;
   border: none;
   border-radius: 2px;
-  background-color: var(--app-accent-color);
+  background-color: rgba(0,0,0, .1);
   outline: none;
-  color: var(--app-light-color);
+  color: #4A4A4A;
+  font-weight: 600;
   text-transform: uppercase;
   cursor: pointer;
 }
+  
+  .ticket button:hover {
+     background-color: rgba(0,0,0,.2);
+  }
 
 .ticket button i {
   font-size: 16px;
@@ -686,7 +901,7 @@ div.rotate span:nth-child(3) { animation-delay: .3s }
   border: 0;
   outline: 0;
   font-size: 1rem;
-  color: #fff;
+  color: black !important;
   background: transparent;
   transition: border-color 0.2s;
 }
@@ -700,22 +915,65 @@ div.rotate span:nth-child(3) { animation-delay: .3s }
   border-width: 3px;
   border-image: linear-gradient(to right, #11998e, #38ef7d);
   border-image-slice: 1;
+  color: black !important;
 }
+
 .form__field:focus ~ .form__label {
   position: absolute;
   top: 0;
   display: block;
   transition: 0.2s;
   font-size: 1rem;
-  color: #11998e;
+  /*color: #11998e;*/
   font-weight: 700;
 }
-</style>
+  
+  .close2{
+    position: absolute; 
+    right: 15px; 
+    margin-top: 5px; 
+    border-radius: 5px;
+    background-color: #445878;
+    color: white;
+     cursor: pointer;
+    border: none;
+    padding: 10px 20px;
+  }
+  
+   .close2:hover{
+     background-color: #34425a !important;
+  }
+
+</style> 
 
 
+
+    <div class="slider">
+      <div class="slider__slide slider__slide--active" data-slide="1">
+        <div class="slider__wrap">
+          <div class="slider__back"></div>
+        </div>
+        <div class="slider__inner">
+          <div class="slider__content">
+            <div class="begin-container">
+              <button type="button" class="go-to-next begin"  style="margin-top: 20px; color: #fff;" onclick="nextSlide()">Comenzar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slider__slide" data-slide="2">
+        <div class="slider__wrap">
+          <div class="slider__back"></div>
+        </div>
+        <div class="slider__inner">
+          <div class="slider__content">
+            
+            
+            
 <div class="wrap" data-pos="0" style="height: 570px; margin-top: 20px;">
     <div class="headbar">
-      <i class="zmdi zmdi-arrow-left btnBack"></i> <span>Agenda tu primera clase</span>
+      <i class="zmdi zmdi-arrow-left btnBack"></i> <span>Formulario de registro</span>
     </div>
     <div class="header">
       <div class="bg"></div>
@@ -782,6 +1040,7 @@ div.rotate span:nth-child(3) { animation-delay: .3s }
                   <span>S</span>
                 </div>
                 <div class="days"></div>
+                <button class="close2"> Cerrar </button>
               </div>
             </div>
           </div>
@@ -822,18 +1081,20 @@ div.rotate span:nth-child(3) { animation-delay: .3s }
                 <input type="radio" name="plan" value="PRO">
                 <span>PRO</span>
               </label>
-       <!--        <label>
+              <label>
                 <input type="radio" name="plan" value="PREMIUM">
                 <span>Premium</span>
-              </label>        -->
+              </label>
+       <!--
               <label>
                 <input type="radio" name="plan" value="Estudiante">
                 <span>Estudiante</span>
               </label>
+       -->
             </div>
           </div>
           <div class="control">
-            <button class="btnSearch">Buscar horarios</button>
+            <button class="btnSearch">Continuar</button>
           </div>
 
         </div>
@@ -859,8 +1120,49 @@ div.rotate span:nth-child(3) { animation-delay: .3s }
   
   </div>
 
- <script>
+          
+          </div>
+        </div>
+      </div>
 
+   
+      
+   </div>
+
+
+
+
+<script>
+  
+  
+  
+   $(document).ready(function(){
+    for (var i = 1; i <= $('.slider__slide').length; i++) {
+      $('.slider__indicators').append('<div class="slider__indicator" data-slide="' + i + '"></div>')
+    }
+    setTimeout(function(){
+      $('.slider__wrap').addClass('slider__wrap--hacked');
+    }, 1000);
+  });
+
+  function goToSlide(number) {
+    $('.slider__slide').removeClass('slider__slide--active');
+    $('.slider__slide[data-slide=' + number + ']').addClass('slider__slide--active');
+  }
+
+  function nextSlide(){
+    var currentSlide = Number($('.slider__slide--active').data('slide'));
+    var totalSlides = $('.slider__slide').length;
+    currentSlide++;
+    if (currentSlide > totalSlides) {
+      currentSlide = 1;
+    }
+    goToSlide(currentSlide);
+  }
+
+  
+  
+  
 var flights = [
     {
         price: "450 MXN",
@@ -1050,6 +1352,14 @@ var flights = [
         price: "450 MXN",
         plan: "Standard",
       date: "Domingo",
+      discount: "$500",
+        carrier: "KL",
+        nodes: ["CDG 2024-09-01T12:00 AMS 2024-09-01T13:00"]
+    },{
+        price: "400 MXN",
+        plan: "Standard",
+      date: "Domingo",
+      special: 1,
       discount: "$500",
         carrier: "KL",
         nodes: ["CDG 2024-09-01T12:00 AMS 2024-09-01T13:00"]
@@ -1250,7 +1560,7 @@ var flights = [
     },
 
 
-/*
+
  {
         price: "1350 MXN",
         plan: "PREMIUM",
@@ -1442,11 +1752,11 @@ var flights = [
       discount: "$1400",
         carrier: "KL",
         nodes: ["CDG 2024-09-01T12:00 AMS 2024-09-01T13:00"]
-    },*/
+    },
 
 
 
-
+/*
     {
         price: "350 MXN",
         plan: "Estudiante",
@@ -1588,7 +1898,7 @@ var flights = [
       discount: "$450",
         carrier: "KL",
         nodes: ["CDG 2024-09-01T12:00 AMS 2024-09-01T13:00"]
-    }
+    }*/
     
 ];
 
@@ -1605,27 +1915,27 @@ var carrier = {
 var airports = [{"name":"Miércoles","city":"Vichy","country":"Día","IATA":"M11"},{"name":"Jueves","city":"Vichy","country":"Día","IATA":"M12"},{"name":"Viernes","city":"Vichy","country":"Día","IATA":"M14"},{"name":"Sábado","city":"Vichy","country":"Día","IATA":"M15"},{"name":"Domingo","city":"Vichy","country":"Día","IATA":"M16"}];
 
 (function () {
-	
-	var _airports = _.groupBy(airports, o => o.country),
-		selectIndex = [], 
-		selectData = [];
+  
+  var _airports = _.groupBy(airports, o => o.country),
+    selectIndex = [], 
+    selectData = [];
 
-	_.each(_airports, (countryList, countryName) => {
-		var firstLeter = countryName.split('')[0];
-		selectData.push(`<li class="sep" data-index="${firstLeter}">${countryName}</li>`);
-		selectIndex.push(`<li>${firstLeter}</li>`);
+  _.each(_airports, (countryList, countryName) => {
+    var firstLeter = countryName.split('')[0];
+    selectData.push(`<li class="sep" data-index="${firstLeter}">${countryName}</li>`);
+    selectIndex.push(`<li>${firstLeter}</li>`);
 
-		_.each(countryList, (airport, i) => {
-			selectData.push(`<li data-iata="${airport.IATA}" data-city="${airport.city}">
-				${airport.IATA}, ${airport.name}</li>`);
-		});
-	});
+    _.each(countryList, (airport, i) => {
+      selectData.push(`<li data-iata="${airport.IATA}" data-city="${airport.city}">
+        ${airport.IATA}, ${airport.name}</li>`);
+    });
+  });
 
-	$('.select ul.select-index').html(_.uniq(selectIndex).join(''));
-	$('.select ul.select-data').html(selectData.join(''));
+  $('.select ul.select-index').html(_.uniq(selectIndex).join(''));
+  $('.select ul.select-data').html(selectData.join(''));
 
 
-	// Calendar days
+  // Calendar days
 var monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
 // Obtener la fecha actual
@@ -1662,7 +1972,7 @@ $('.calendar .days span').eq(startDay + currentDay - 1).addClass('checked');
   
   
   
-  
+   
   
   function renderCalendarDays(month, year) {
   var daysContainer = $('.calendar .days');
@@ -1733,113 +2043,118 @@ $('.zmdi-chevron-left').on('click', function() {
   
   
 
-	// Flight Results
-	doFlightsRender(true);
+  // Flight Results
+  doFlightsRender(true);
 
 
-	// Events
-	// Open inputs
-	$('.control:not(.open) .control-head').on('click', function(evt) {
-		$(evt.currentTarget).parent('.control').addClass('open');
-	});
+  // Events
+  // Open inputs
+  $('.control:not(.open) .control-head').on('click', function(evt) {
+    $(evt.currentTarget).parent('.control').addClass('open');
+  });
 
-	$('.control .close').on('click', function(evt) {
-		var z = $(evt.currentTarget).closest('.control');
-		setTimeout(() => { z.removeClass('open') }, 50);
-	});
+  $('.control .close').on('click', function(evt) {
+    var z = $(evt.currentTarget).closest('.control');
+    setTimeout(() => { z.removeClass('open') }, 50);
+  });
+  
+  $('.control .close2').on('click', function(evt) {
+    var z = $(evt.currentTarget).closest('.control');
+    setTimeout(() => { z.removeClass('open') }, 50);
+  });
 
-	// SpinnerInput add/substract action
-	$('.spinner button').on('click', function(evt) {
-		var isAdding = evt.currentTarget.getAttribute('data-action') == 'plus',
-			$input = $('input[name="passengers"]:checked'),
-			$control = $input.siblings('div').find('span'),
-			value = parseInt($control.text());
+  // SpinnerInput add/substract action
+  $('.spinner button').on('click', function(evt) {
+    var isAdding = evt.currentTarget.getAttribute('data-action') == 'plus',
+      $input = $('input[name="passengers"]:checked'),
+      $control = $input.siblings('div').find('span'),
+      value = parseInt($control.text());
 
-		if(isAdding)
-			value++;
-		else if (value !== 0)
-			value--;
+    if(isAdding)
+      value++;
+    else if (value !== 0)
+      value--;
 
-		$control.text(value);
-	});
+    $control.text(value);
+  });
 
-	// SelectInput find index
-	$('.select-index').on('click', 'li', function(evt) {
-		var index = evt.currentTarget.textContent,
-			$nano = $(evt.currentTarget).parent('.select-index').siblings('.nano'),
-			el = $nano.find(`li.sep[data-index="${index}"]`)[0];
+  // SelectInput find index
+  $('.select-index').on('click', 'li', function(evt) {
+    var index = evt.currentTarget.textContent,
+      $nano = $(evt.currentTarget).parent('.select-index').siblings('.nano'),
+      el = $nano.find(`li.sep[data-index="${index}"]`)[0];
 
-		$nano.find('.nano-content').animate({ scrollTop: el.offsetTop }, 600);
-	});
+    $nano.find('.nano-content').animate({ scrollTop: el.offsetTop }, 600);
+  });
 
-	// SelectInput set data
-	$('.select-data').on('click', 'li:not(.sep)', function(evt) {
-		var text = evt.currentTarget.textContent,
-			iata = evt.currentTarget.getAttribute('data-iata'),
-			$select = $(evt.currentTarget).closest('.select'),
-			$nameContainer = $select.find('.airport-name');
+  // SelectInput set data
+  $('.select-data').on('click', 'li:not(.sep)', function(evt) {
+    var text = evt.currentTarget.textContent,
+      iata = evt.currentTarget.getAttribute('data-iata'),
+      $select = $(evt.currentTarget).closest('.select'),
+      $nameContainer = $select.find('.airport-name');
 
-		if($nameContainer.data('role') == 'from') {
-			var _iata = iata.split('');
-			var div = $('.header .fromPlace').addClass('rotate');
-			var span = $('.header .fromPlace span');
-			span.eq(0).text(_iata[0]);
-			span.eq(1).text(_iata[1]);
-			span.eq(2).text(_iata[2]);
-			setTimeout(() => div.removeClass('rotate'), 900);
-			//$('.xfrom').text(iata);
-		}
-		else {
-			var _iata = iata.split('');
-			var div = $('.header .toPlace').addClass('rotate');
-			var span = $('.header .toPlace span');
-			span.eq(0).text(_iata[0]);
-			span.eq(1).text(_iata[1]);
-			span.eq(2).text(_iata[2]);
-			setTimeout(() => div.removeClass('rotate'), 900);
-			//$('.xto').text(iata);
-		}
+    if($nameContainer.data('role') == 'from') {
+      var _iata = iata.split('');
+      var div = $('.header .fromPlace').addClass('rotate');
+      var span = $('.header .fromPlace span');
+      span.eq(0).text(_iata[0]);
+      span.eq(1).text(_iata[1]);
+      span.eq(2).text(_iata[2]);
+      setTimeout(() => div.removeClass('rotate'), 900);
+      //$('.xfrom').text(iata);
+    }
+    else {
+      var _iata = iata.split('');
+      var div = $('.header .toPlace').addClass('rotate');
+      var span = $('.header .toPlace span');
+      span.eq(0).text(_iata[0]);
+      span.eq(1).text(_iata[1]);
+      span.eq(2).text(_iata[2]);
+      setTimeout(() => div.removeClass('rotate'), 900);
+      //$('.xto').text(iata);
+    }
 
-		$nameContainer.text(text);
-		$select.toggleClass('open');
+    $nameContainer.text(text);
+    $select.toggleClass('open');
 
-		$(evt.currentTarget).addClass('selected').siblings('li').removeClass('selected');
-	});
+    $(evt.currentTarget).addClass('selected').siblings('li').removeClass('selected');
+  });
 
-	// Date input
-	$('.calendar .days span').on('click', function(evt) {
-		var $this = $(evt.currentTarget),
-			day = evt.currentTarget.textContent;
+  // Date input
+  $('.calendar .days span').on('click', function(evt) {
+    var $this = $(evt.currentTarget),
+      day = evt.currentTarget.textContent;
 
-		$this.addClass('checked').siblings('span').removeClass('checked');
+    $this.addClass('checked').siblings('span').removeClass('checked');
 
-		var currentMonth = new Date().getMonth(); 
+    var currentMonth = new Date().getMonth(); 
     var currentYear = new Date().getFullYear(); 
     var date = new Date(currentYear, currentMonth, day);
-		var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     var formattedDate = date.toLocaleDateString('es-ES', options);
 
     // Exportar la fecha formateada
     $('.dateinput .control-item span').eq(0).text(formattedDate);
-	});
+  });
 
 
-	$('.btnBack').on('click', function(evt) {
-		var wrap = document.querySelector('.wrap'),
-			index = parseInt(wrap.getAttribute('data-pos'));
-		
-		$('.ticket button.btnBook').text('Book Flight');
-		wrap.setAttribute('data-pos', index - 1);
-	});
+  $('.btnBack').on('click', function(evt) {
+    var wrap = document.querySelector('.wrap'),
+      index = parseInt(wrap.getAttribute('data-pos'));
+    
+    $('.ticket button.btnBook').text('Agendar clase');
+    wrap.setAttribute('data-pos', index - 1);
+  });
 
-	// Search button
-	$('.btnSearch').on('click', function(evt) {
-		var selectedDateText = $('.dateinput .control-item span').eq(0).text();
+  // Search button
+  $('.btnSearch').on('click', function(evt) {
+    var selectedDateText = $('.dateinput .control-item span').eq(0).text();
      
     if (selectedDateText === "Selecciona una fecha") {
         alert("Por favor, seleccione la fecha de su primer clase para continuar");
         return;
-    }
+    } 
     
     var selectedDay = selectedDateText.split(',')[0].trim().toLowerCase();
     var name = $('.form__field.name').val()
@@ -1847,31 +2162,33 @@ $('.zmdi-chevron-left').on('click', function() {
    if (selectedDay === "lunes" || selectedDay === "martes") {
         // Renderizar mensaje de que la academia está cerrada
         alert("La academia está cerrada los lunes y martes. Por favor, seleccione otra fecha.");
-    }/*else if(name == ""){
+    }else if(name == ""){
       alert("Ingresa tu nombre")
     }else if (phone === "") {
     alert("Por favor, ingresa tu número de teléfono.");
     } else if (!/^\d{10}$/.test(phone)) {
     alert("Por favor, ingresa los 10 digitos de tu número de telefono.");
-    }*/ else {
+    } else {
+      const contentDiv = document.querySelector('.content');
+contentDiv.style.backgroundColor = 'white';
         // Continuar con el renderizado de los vuelos
         doFlightsRender(false);
         setTimeout(() => {
             document.querySelector('.wrap').setAttribute('data-pos', 1);
         }, 50);
     }
-	});
+  });
 
-	$('.ticket button').on('click', function(evt) {
-		var $button = $(evt.currentTarget);
-		var $loader = $('.loader').show();
-		$button.text('Agendando...');
+  $('.ticket button').on('click', function(evt) {
+    var $button = $(evt.currentTarget);
+    var $loader = $('.loader').show();
+    $button.text('Agendando...');
 
-		setTimeout(() => {
-			$loader.hide();
-			$button.html('<i class="zmdi zmdi-check-circle"></i> Clase agendada');
-			$button.addClass('success');
-		}, 1200);
+    setTimeout(() => {
+      $loader.hide();
+      $button.html('<i class="zmdi zmdi-check-circle"></i> Clase agendada');
+      $button.addClass('success');
+    }, 1200);
      
     var name = $('.form__field.name').val()
   var phone = $('.form__field.phone').val()
@@ -1887,7 +2204,7 @@ $('.zmdi-chevron-left').on('click', function() {
   var endTime = end.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit', hour12: false });
   var classtime = `${dayName} de ${startTime} a ${endTime} Hrs`
   
- /* var api = "https://script.google.com/macros/s/AKfycbxXD35z5FSf_m_dwBt5qcBwWq2L7IDc7KBrYGfix6hUa4kvJ1TFpjU82NltFXezUroGgQ/exec";
+  var api = "https://script.google.com/macros/s/AKfycbxXD35z5FSf_m_dwBt5qcBwWq2L7IDc7KBrYGfix6hUa4kvJ1TFpjU82NltFXezUroGgQ/exec";
 
   var validationData = {
     redirect: "follow",
@@ -1912,92 +2229,92 @@ $('.zmdi-chevron-left').on('click', function() {
       var validation = JSON.parse(res);
       if (validation.status == "success") {
         setTimeout(function() {
-            window.location.href = 'https://www.mozart.studio';
+            window.location.href = 'https://www.mozartacademy.mx';
         }, 3000);   
       } 
-    })*/
+    })
 
-	});
+  });
 
-	// Select Flight
-	$('.list').on('click', 'article', function(evt) {
-		var index = parseInt(evt.currentTarget.getAttribute('data-index'))
+  // Select Flight
+  $('.list').on('click', 'article', function(evt) {
+    var index = parseInt(evt.currentTarget.getAttribute('data-index'))
         thisIndex = index;
-			flight = flights[index];
+      flight = flights[index];
 
-		var [from, t1, to, t2] = flight.nodes[0].split(' ');
+    var [from, t1, to, t2] = flight.nodes[0].split(' ');
 
-		var p = $('.radio.passengers label span'),
-			peopleTotal = 0,
-			people = _.map(p, function(el, i) {
-				var v = parseInt(el.textContent),
-					str = '';
+    var p = $('.radio.passengers label span'),
+      peopleTotal = 0,
+      people = _.map(p, function(el, i) {
+        var v = parseInt(el.textContent),
+          str = '';
 
-				if(i == 0 && v)
-					str = `${v} Adults`;
-				if(i == 1 && v)
-					str = `${v} Kids`;
-				if(i == 2 && v)
-					str = `${v} Elders`;
-				
-				peopleTotal += v;
+        if(i == 0 && v)
+          str = `${v} Adults`;
+        if(i == 1 && v)
+          str = `${v} Kids`;
+        if(i == 2 && v)
+          str = `${v} Elders`;
+        
+        peopleTotal += v;
 
-				return str;
-			});
+        return str;
+      });
 
-		from = $('.fromPlace span').text();
-		to = $('.toPlace span').text();
+    from = $('.fromPlace span').text();
+    to = $('.toPlace span').text();
 
-		var time1 = new Date(t1), 
-			time2 = new Date(t2);
+    var time1 = new Date(t1), 
+      time2 = new Date(t2);
     
     var name = $('.form__field.name').val()
     var firstclass = $('.dateinput .control-item span').eq(0).text();
     var plan = $('input[name="plan"]:checked').val();
     var day = firstclass.split(",")[0]
-		var flightRender = `
-		
-			<div class="row">
-				<div class="cell">
-					<small>Nombre</small><span>${name}</span>
-				</div>
-        <div class="cell">
-				</div>
-			</div>
+    var flightRender = `
+    
       <div class="row">
-				<div class="cell">
-					<small>Horario</small>
+        <div class="cell">
+          <small>Nombre</small><span>${name}</span>
+        </div>
+        <div class="cell">
+        </div>
+      </div>
+      <div class="row">
+        <div class="cell">
+          <small>Horario</small>
           ${day} <br>
           <span style="position: absolute">  ${time1.toLocaleTimeString().replace(':00','')} - 
             ${time2.toLocaleTimeString().replace(':00','')}</span>
-				</div>
-				<div class="cell" >
-					<small>Plan</small><span>${plan}</span>
-				</div>
-			</div>
-			<div class="row" style="display: flex;">
+        </div>
+        <div class="cell" >
+          <small>Plan</small><span>${plan}</span>
+        </div>
+      </div>
+      <div class="row" style="display: flex;">
   <div class="cell" style="flex: 1; padding: 21px;">
     <small>Fecha de primer clase</small> 
     <span>${firstclass}</span>
   </div>
 </div>
-			<div class="total" style="margin-top: 40px;">
+      <div class="total" style="margin-top: 40px;">
        <span style="text-decoration: line-through; font-size: 20px;">${flight.discount} MXN</span> <br>
-				<small>Total</small> <span>$${flight.price}</span>
-			</div>
-		`;
+        <small>Total</small> <span>$${flight.price}</span>
+      </div>
+    `;
 
-		$('.ticket section').html(flightRender);
-		setTimeout(() => {
-			document.querySelector('.wrap').setAttribute('data-pos', 2);
-		}, 50);
-	});
+    $('.ticket section').html(flightRender);
+    setTimeout(() => {
+      document.querySelector('.wrap').setAttribute('data-pos', 2);
+    }, 50);
+  });
 
-	// Init scroll
-	$(".nano").nanoScroller();
+  // Init scroll
+  $(".nano").nanoScroller();
 
 
-	function doFlightsRender(isInit) {
+  function doFlightsRender(isInit) {
     
   /*   var studentFlights = flights.filter(function(o) {
        var firstclass = $('.dateinput .control-item span').eq(0).text();
@@ -2014,55 +2331,70 @@ $('.zmdi-chevron-left').on('click', function() {
     return o.date.toLowerCase() === day && o.plan === plan;
   });
     
-		var flightsRender = _.map(studentFlights, function(o, i) {
-			var sumText = "";
-			var [from, t1, to, t2] = o.nodes[0].split(' ');
+    var flightsRender = _.map(studentFlights, function(o, i) {
+      var sumText = "";
+      var [from, t1, to, t2] = o.nodes[0].split(' ');
 
-			var d1 = new Date(t1), 
-				d2 = new Date(t2);
+      var d1 = new Date(t1), 
+        d2 = new Date(t2);
       
 
-			if(!isInit) {
-				var ppl = $('.radio.passengers label span'),
-					sum = parseInt(ppl.eq(0).text()) + parseInt(ppl.eq(1).text()) + parseInt(ppl.eq(2).text());
+      if(!isInit) {
+        var ppl = $('.radio.passengers label span'),
+          sum = parseInt(ppl.eq(0).text()) + parseInt(ppl.eq(1).text()) + parseInt(ppl.eq(2).text());
 
-				sumText = `${sum} people $${(o.price * sum).toFixed(2)}`;
-				from = $('.fromPlace span').text();
-				to = $('.toPlace span').text();
-			}
+        sumText = `${sum} people $${(o.price * sum).toFixed(2)}`;
+        from = $('.fromPlace span').text();
+        to = $('.toPlace span').text();
+      }
 
-			var img;
-			if(o.carrier == 'KL')
-				img = 'https://dl.dropbox.com/s/02ve5kn75rpo0s3/KL.png';
-			else if(o.carrier == 'BA')
-				img = 'https://dl.dropbox.com/s/6fpuy898zzuk7nn/BA.png';
-			else
-				img = 'https://dl.dropbox.com/s/dhmufay65yer2jz/AF.png';
-      var demandText = o.discount === "" ? "<span style=' color: #bbb; font-size: 1.2em; position: absolute; margin-top: 30px;'>Alta demanda</span>" : "";
+      var img;
+      if(o.carrier == 'KL')
+        img = 'https://dl.dropbox.com/s/02ve5kn75rpo0s3/KL.png';
+      else if(o.carrier == 'BA')
+        img = 'https://dl.dropbox.com/s/6fpuy898zzuk7nn/BA.png';
+      else
+        img = 'https://dl.dropbox.com/s/dhmufay65yer2jz/AF.png';
+var demandText = "";
 
-			return `<article data-index="${o.originalIndex}">
-			<!--	<div class="img">
-					<img src="${img}" alt="ualogo" />
-				</div> -->
-				<div class="info">
+if (o.discount === "") {
+  demandText = "<span style='color: red; font-size: 1.2em; position: absolute; margin-top: 30px;'>Alta demanda</span>";
+} else if (o.special === 1) {
+  demandText = "<span style='color: green; font-size: 1.2em; position: absolute; margin-top: 30px;'>Descuento especial</span>";
+}
+      
+      var priceColor;
+
+if (demandText.includes("Alta demanda")) {
+  priceColor = "red";
+} else if (demandText.includes("Descuento especial")) {
+  priceColor = "#28a745";
+} else {
+  priceColor = "#4A4A4A"; // Por defecto, negro
+}
+
+      return `<article data-index="${o.originalIndex}">
+      <!--  <div class="img">
+          <img src="${img}" alt="ualogo" />
+        </div> -->
+        <div class="info">
         <span style='font-size: 14px;'>${o.date}</span>
-					<span class="time">Plan ${o.plan}</span>
-					<span class="airline">
-						${d1.toLocaleTimeString().replace(':00','')} - 
-						${d2.toLocaleTimeString().replace(':00','')}
-					</span>
+          <span class="time">Plan ${o.plan}</span>
+          <span class="airline">
+            ${d1.toLocaleTimeString().replace(':00','')} - 
+            ${d2.toLocaleTimeString().replace(':00','')}
+          </span>
           
-					<!--<span>${carrier[o.carrier]} ${from} - ${to}</span>-->
+          <!--<span>${carrier[o.carrier]} ${from} - ${to}</span>-->
 ${demandText}
-					<h5><small style='text-decoration: line-through; font-size: 15px;'>${o.discount}</small>  $${o.price}</h5>
-				</div>
-			</article>`;
-		});
+          <h5 style='color: ${priceColor}'><small style='text-decoration: line-through; font-size: 15px;'>${o.discount}</small>  $${o.price} </h5>
+        </div>
+      </article>`;
+    });
 
-		$('.list .nano-content').html(flightsRender.join(''));
-	}
+    $('.list .nano-content').html(flightsRender.join(''));
+  }
 
 })();
 
-
- </script>
+</script>
